@@ -246,9 +246,10 @@ def build_fish() -> None:
     )
 
     # Single-mode files for fish 4.2 and earlier, which do not read sections.
+    # They live outside themes/ because Fisher copies everything in themes/.
     for key, variant in VARIANTS.items():
         write(
-            themes / "static" / f"kanagawa-{key}.theme",
+            ROOT / "static" / f"kanagawa-{key}.theme",
             fish_header(variant["name"]) + fish_body(variant),
         )
 

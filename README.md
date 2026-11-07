@@ -44,9 +44,9 @@ If you upgraded from Fish 4.2 or earlier, delete `~/.config/fish/conf.d/fish_fro
 
 ### Choose a theme (Fish 4.2 and earlier)
 
-Fish 4.2 and earlier can't read the `[light]` and `[dark]` sections. Use the single-variant files in [`themes/static/`](themes/static) instead. Fisher doesn't install these files.
+Fish 4.2 and earlier can't read the `[light]` and `[dark]` sections. Use the single-variant files in [`static/`](static) instead. Fisher doesn't install these files.
 
-1. Copy a file from `themes/static/` to `~/.config/fish/themes/`.
+1. Copy a file from `static/` to `~/.config/fish/themes/`.
 2. Run `fish_config theme choose kanagawa-wave`, using the name of the file you copied.
 
 ## Windows Terminal
