@@ -44,7 +44,7 @@ If you upgraded from Fish 4.2 or earlier, delete `~/.config/fish/conf.d/fish_fro
 
 ### Choose a theme (Fish 4.2 and earlier)
 
-Fish 4.2 and earlier can't read the `[light]` and `[dark]` sections. Use the single-variant files in [`static/`](static) instead. Fisher doesn't install these files.
+Fish 4.2 and earlier can't read the `[light]` and `[dark]` sections. Use the single-variant files in [`static/`](static) instead. Fisher doesn't install these files. Don't combine them with a Fisher install, because they have the same file names.
 
 1. Copy a file from `static/` to `~/.config/fish/themes/`.
 2. Run `fish_config theme choose kanagawa-wave`, using the name of the file you copied.
@@ -112,6 +112,7 @@ python3 build.py
 - The Kanagawa palette comes from [rebelot/kanagawa.nvim](https://github.com/rebelot/kanagawa.nvim) by Tommaso Laurenzi, under the MIT license.
 - [terminalcolors.com](https://terminalcolors.com/themes/kanagawa/) is the source of the terminal colors.
 - [catppuccin/fish](https://github.com/catppuccin/fish) and [catppuccin/windows-terminal](https://github.com/catppuccin/windows-terminal) are the models for the file layout.
+- The VS Code colors depend on [catppuccin/vscode](https://github.com/catppuccin/vscode) and its override settings.
 
 ## License
 
