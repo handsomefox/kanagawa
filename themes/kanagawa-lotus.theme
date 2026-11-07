@@ -1,0 +1,34 @@
+# name: 'Kanagawa Lotus'
+# url: 'https://github.com/handsomefox/kanagawa'
+
+# preferred_background: f2ecbc
+fish_color_normal 545464
+fish_color_command 4d699b
+fish_color_keyword 624c83
+fish_color_param 5d57a3
+fish_color_option 6693bf
+fish_color_quote 6f894e
+fish_color_redirection 836f4a
+fish_color_operator 836f4a
+fish_color_end cc6d00
+fish_color_escape 836f4a
+fish_color_comment 8a8980
+fish_color_autosuggestion 8a8980
+fish_color_error e82424
+fish_color_cancel e82424
+fish_color_status e82424
+fish_color_gray 8a8980
+fish_color_valid_path --underline
+fish_color_history_current --bold
+fish_color_selection --background=c9cbd1
+fish_color_search_match --background=b5cbd2
+fish_color_cwd 77713f
+fish_color_cwd_root e82424
+fish_color_user 597b75
+fish_color_host 4d699b
+fish_color_host_remote 6f894e
+fish_pager_color_progress 8a8980
+fish_pager_color_prefix 77713f --bold
+fish_pager_color_completion 545464
+fish_pager_color_description 8a8980
+fish_pager_color_selected_background --background=9fb5c9

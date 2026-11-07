@@ -1,0 +1,34 @@
+# name: 'Kanagawa Dragon'
+# url: 'https://github.com/handsomefox/kanagawa'
+
+# preferred_background: 181616
+fish_color_normal c5c9c5
+fish_color_command 8ba4b0
+fish_color_keyword 8992a7
+fish_color_param a6a69c
+fish_color_option 949fb5
+fish_color_quote 8a9a7b
+fish_color_redirection c4746e
+fish_color_operator c4746e
+fish_color_end b6927b
+fish_color_escape c4746e
+fish_color_comment 737c73
+fish_color_autosuggestion 737c73
+fish_color_error e82424
+fish_color_cancel e82424
+fish_color_status e82424
+fish_color_gray 737c73
+fish_color_valid_path --underline
+fish_color_history_current --bold
+fish_color_selection --background=223249
+fish_color_search_match --background=2d4f67
+fish_color_cwd c4b28a
+fish_color_cwd_root e82424
+fish_color_user 8ea4a2
+fish_color_host 8ba4b0
+fish_color_host_remote 8a9a7b
+fish_pager_color_progress 737c73
+fish_pager_color_prefix c4b28a --bold
+fish_pager_color_completion c5c9c5
+fish_pager_color_description 737c73
+fish_pager_color_selected_background --background=2d4f67

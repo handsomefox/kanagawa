@@ -1,0 +1,101 @@
+# name: 'Kanagawa Dragon'
+# url: 'https://github.com/handsomefox/kanagawa'
+
+[light]
+# preferred_background: f2ecbc
+fish_color_normal 545464
+fish_color_command 4d699b
+fish_color_keyword 624c83
+fish_color_param 5d57a3
+fish_color_option 6693bf
+fish_color_quote 6f894e
+fish_color_redirection 836f4a
+fish_color_operator 836f4a
+fish_color_end cc6d00
+fish_color_escape 836f4a
+fish_color_comment 8a8980
+fish_color_autosuggestion 8a8980
+fish_color_error e82424
+fish_color_cancel e82424
+fish_color_status e82424
+fish_color_gray 8a8980
+fish_color_valid_path --underline
+fish_color_history_current --bold
+fish_color_selection --background=c9cbd1
+fish_color_search_match --background=b5cbd2
+fish_color_cwd 77713f
+fish_color_cwd_root e82424
+fish_color_user 597b75
+fish_color_host 4d699b
+fish_color_host_remote 6f894e
+fish_pager_color_progress 8a8980
+fish_pager_color_prefix 77713f --bold
+fish_pager_color_completion 545464
+fish_pager_color_description 8a8980
+fish_pager_color_selected_background --background=9fb5c9
+
+[dark]
+# preferred_background: 181616
+fish_color_normal c5c9c5
+fish_color_command 8ba4b0
+fish_color_keyword 8992a7
+fish_color_param a6a69c
+fish_color_option 949fb5
+fish_color_quote 8a9a7b
+fish_color_redirection c4746e
+fish_color_operator c4746e
+fish_color_end b6927b
+fish_color_escape c4746e
+fish_color_comment 737c73
+fish_color_autosuggestion 737c73
+fish_color_error e82424
+fish_color_cancel e82424
+fish_color_status e82424
+fish_color_gray 737c73
+fish_color_valid_path --underline
+fish_color_history_current --bold
+fish_color_selection --background=223249
+fish_color_search_match --background=2d4f67
+fish_color_cwd c4b28a
+fish_color_cwd_root e82424
+fish_color_user 8ea4a2
+fish_color_host 8ba4b0
+fish_color_host_remote 8a9a7b
+fish_pager_color_progress 737c73
+fish_pager_color_prefix c4b28a --bold
+fish_pager_color_completion c5c9c5
+fish_pager_color_description 737c73
+fish_pager_color_selected_background --background=2d4f67
+
+[unknown]
+# preferred_background: 181616
+fish_color_normal c5c9c5
+fish_color_command 8ba4b0
+fish_color_keyword 8992a7
+fish_color_param a6a69c
+fish_color_option 949fb5
+fish_color_quote 8a9a7b
+fish_color_redirection c4746e
+fish_color_operator c4746e
+fish_color_end b6927b
+fish_color_escape c4746e
+fish_color_comment 737c73
+fish_color_autosuggestion 737c73
+fish_color_error e82424
+fish_color_cancel e82424
+fish_color_status e82424
+fish_color_gray 737c73
+fish_color_valid_path --underline
+fish_color_history_current --bold
+fish_color_selection --background=223249
+fish_color_search_match --background=2d4f67
+fish_color_cwd c4b28a
+fish_color_cwd_root e82424
+fish_color_user 8ea4a2
+fish_color_host 8ba4b0
+fish_color_host_remote 8a9a7b
+fish_pager_color_progress 737c73
+fish_pager_color_prefix c4b28a --bold
+fish_pager_color_completion c5c9c5
+fish_pager_color_description 737c73
+fish_pager_color_selected_background --background=2d4f67

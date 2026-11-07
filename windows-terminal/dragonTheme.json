@@ -1,0 +1,15 @@
+{
+  "name": "Kanagawa Dragon",
+  "tab": {
+    "background": "#181616FF",
+    "showCloseButton": "always",
+    "unfocusedBackground": null
+  },
+  "tabRow": {
+    "background": "#12120FFF",
+    "unfocusedBackground": "#0D0C0CFF"
+  },
+  "window": {
+    "applicationTheme": "dark"
+  }
+}

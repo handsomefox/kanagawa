@@ -1,0 +1,15 @@
+{
+  "name": "Kanagawa Wave",
+  "tab": {
+    "background": "#1F1F28FF",
+    "showCloseButton": "always",
+    "unfocusedBackground": null
+  },
+  "tabRow": {
+    "background": "#181820FF",
+    "unfocusedBackground": "#16161DFF"
+  },
+  "window": {
+    "applicationTheme": "dark"
+  }
+}

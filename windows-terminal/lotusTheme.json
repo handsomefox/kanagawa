@@ -1,0 +1,15 @@
+{
+  "name": "Kanagawa Lotus",
+  "tab": {
+    "background": "#F2ECBCFF",
+    "showCloseButton": "always",
+    "unfocusedBackground": null
+  },
+  "tabRow": {
+    "background": "#DCD5ACFF",
+    "unfocusedBackground": "#D5CEA3FF"
+  },
+  "window": {
+    "applicationTheme": "light"
+  }
+}
