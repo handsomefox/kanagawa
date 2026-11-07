@@ -1,6 +1,6 @@
 # Kanagawa for Fish and Windows Terminal
 
-Color themes for the [Fish shell](https://fishshell.com) and [Windows Terminal](https://github.com/microsoft/terminal), in all three Kanagawa variants:
+Color themes for the [Fish shell](https://fishshell.com), [Windows Terminal](https://github.com/microsoft/terminal), and [VS Code](https://code.visualstudio.com), in all three Kanagawa variants:
 
 | Variant | Appearance | Background |
 | ------- | ---------- | ---------- |
@@ -77,9 +77,31 @@ To add a variant:
 7. In **Settings** > **Appearance** > **Theme**, select the matching theme.
 8. Select **Save**.
 
+## VS Code
+
+This repository doesn't ship a VS Code extension. Instead, [`vscode/settings.json`](vscode/settings.json) recolors the [Catppuccin extension](https://github.com/catppuccin/vscode) through its `catppuccin.colorOverrides` and `catppuccin.customUIColors` settings. Each Kanagawa variant replaces one Catppuccin flavor:
+
+| Select this theme      | To get          |
+| ---------------------- | --------------- |
+| Catppuccin Mocha       | Kanagawa Wave   |
+| Catppuccin Macchiato   | Kanagawa Dragon |
+| Catppuccin Latte       | Kanagawa Lotus  |
+
+Catppuccin Frappe keeps its stock colors.
+
+To set it up:
+
+1. Install the [Catppuccin for VSCode](https://marketplace.visualstudio.com/items?itemName=Catppuccin.catppuccin-vsc) extension.
+2. Run **Preferences: Open User Settings (JSON)** from the Command Palette.
+3. Copy both keys from `vscode/settings.json` into your settings. If you already have either key, merge the flavor objects.
+4. Select **Reload window** when Catppuccin asks. The extension writes its theme files when the settings change, and VS Code reads them only on reload.
+5. Run **Preferences: Color Theme** and select the flavor from the table.
+
+The overrides map Kanagawa's highlight roles onto Catppuccin's palette slots. For example, `mauve` colors keywords, so it gets Kanagawa's keyword color. The match isn't exact everywhere. Catppuccin reuses each slot for several roles, so a color can appear where Kanagawa wouldn't put it. `catppuccin.customUIColors` sets the selection, cursor, diagnostics, git decorations, and the 16 terminal colors directly.
+
 ## Regenerate the files
 
-[`build.py`](build.py) holds the palettes and writes every file in `themes/` and `windows-terminal/`. After you change a color, run:
+[`build.py`](build.py) holds the palettes and writes every file in `themes/`, `static/`, `windows-terminal/`, and `vscode/`. After you change a color, run:
 
 ```sh
 python3 build.py

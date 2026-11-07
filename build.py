@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate the Fish and Windows Terminal theme files from the Kanagawa palette.
+"""Generate the Fish, Windows Terminal, and VS Code theme files from the Kanagawa palette.
 
 Terminal colors come from https://terminalcolors.com/themes/kanagawa/.
 Syntax and UI roles come from rebelot/kanagawa.nvim (lua/kanagawa/themes.lua).
@@ -21,6 +21,7 @@ class Variant(TypedDict):
     term: dict[str, str]
     ui: dict[str, str]
     syn: dict[str, str]
+    status: dict[str, str]
 
 
 VARIANTS: dict[str, Variant] = {
@@ -54,13 +55,20 @@ VARIANTS: dict[str, Variant] = {
             "bg": "#1f1f28",  # sumiInk3
             "bg_m2": "#181820",  # sumiInk1
             "bg_m3": "#16161d",  # sumiInk0
+            "bg_p1": "#2a2a37",  # sumiInk4
+            "bg_p2": "#363646",  # sumiInk5
             "bg_visual": "#223249",  # waveBlue1
             "bg_search": "#2d4f67",  # waveBlue2
             "pmenu_bg_sel": "#2d4f67",  # waveBlue2
+            "fg_dim": "#c8c093",  # oldWhite
+            "special": "#938aa9",  # springViolet1
+            "nontext": "#54546d",  # sumiInk6
         },
         "syn": {
             "string": "#98bb6c",  # springGreen
+            "number": "#d27e99",  # sakuraPink
             "constant": "#ffa066",  # surimiOrange
+            "special2": "#e46876",  # waveRed
             "identifier": "#e6c384",  # carpYellow
             "parameter": "#b8b4d0",  # oniViolet2
             "fun": "#7e9cd8",  # crystalBlue
@@ -71,6 +79,14 @@ VARIANTS: dict[str, Variant] = {
             "comment": "#727169",  # fujiGray
             "special1": "#7fb4ca",  # springBlue
             "error": "#e82424",  # samuraiRed
+        },
+        "status": {
+            "warning": "#ff9e3b",  # roninYellow
+            "info": "#658594",  # dragonBlue
+            "hint": "#6a9589",  # waveAqua1
+            "added": "#76946a",  # autumnGreen
+            "changed": "#dca561",  # autumnYellow
+            "removed": "#c34043",  # autumnRed
         },
     },
     "dragon": {
@@ -103,13 +119,20 @@ VARIANTS: dict[str, Variant] = {
             "bg": "#181616",  # dragonBlack3
             "bg_m2": "#12120f",  # dragonBlack1
             "bg_m3": "#0d0c0c",  # dragonBlack0
+            "bg_p1": "#282727",  # dragonBlack4
+            "bg_p2": "#393836",  # dragonBlack5
             "bg_visual": "#223249",  # waveBlue1
             "bg_search": "#2d4f67",  # waveBlue2
             "pmenu_bg_sel": "#2d4f67",  # waveBlue2
+            "fg_dim": "#c8c093",  # oldWhite
+            "special": "#7a8382",  # dragonGray3
+            "nontext": "#625e5a",  # dragonBlack6
         },
         "syn": {
             "string": "#8a9a7b",  # dragonGreen2
+            "number": "#a292a3",  # dragonPink
             "constant": "#b6927b",  # dragonOrange
+            "special2": "#c4746e",  # dragonRed
             "identifier": "#c4b28a",  # dragonYellow
             "parameter": "#a6a69c",  # dragonGray
             "fun": "#8ba4b0",  # dragonBlue2
@@ -120,6 +143,14 @@ VARIANTS: dict[str, Variant] = {
             "comment": "#737c73",  # dragonAsh
             "special1": "#949fb5",  # dragonTeal
             "error": "#e82424",  # samuraiRed
+        },
+        "status": {
+            "warning": "#ff9e3b",  # roninYellow
+            "info": "#658594",  # dragonBlue
+            "hint": "#6a9589",  # waveAqua1
+            "added": "#76946a",  # autumnGreen
+            "changed": "#dca561",  # autumnYellow
+            "removed": "#c34043",  # autumnRed
         },
     },
     "lotus": {
@@ -152,13 +183,20 @@ VARIANTS: dict[str, Variant] = {
             "bg": "#f2ecbc",  # lotusWhite3
             "bg_m2": "#dcd5ac",  # lotusWhite1
             "bg_m3": "#d5cea3",  # lotusWhite0
+            "bg_p1": "#e7dba0",  # lotusWhite4
+            "bg_p2": "#e4d794",  # lotusWhite5
             "bg_visual": "#c9cbd1",  # lotusViolet3
             "bg_search": "#b5cbd2",  # lotusBlue2
             "pmenu_bg_sel": "#9fb5c9",  # lotusBlue3
+            "fg_dim": "#43436c",  # lotusInk2
+            "special": "#766b90",  # lotusViolet2
+            "nontext": "#a09cac",  # lotusViolet1
         },
         "syn": {
             "string": "#6f894e",  # lotusGreen
+            "number": "#b35b79",  # lotusPink
             "constant": "#cc6d00",  # lotusOrange
+            "special2": "#c84053",  # lotusRed
             "identifier": "#77713f",  # lotusYellow
             "parameter": "#5d57a3",  # lotusBlue5
             "fun": "#4d699b",  # lotusBlue4
@@ -170,12 +208,43 @@ VARIANTS: dict[str, Variant] = {
             "special1": "#6693bf",  # lotusTeal2
             "error": "#e82424",  # lotusRed3
         },
+        "status": {
+            "warning": "#e98a00",  # lotusOrange2
+            "info": "#5a7785",  # lotusTeal3
+            "hint": "#5e857a",  # lotusAqua2
+            "added": "#6e915f",  # lotusGreen2
+            "changed": "#de9800",  # lotusYellow3
+            "removed": "#d7474b",  # lotusRed2
+        },
     },
 }
 
 # Theme files that follow the terminal's light/dark mode (fish 4.3+).
 # Lotus is the light half of each dark variant, as Latte is for Catppuccin.
 ADAPTIVE = {"wave": ("lotus", "wave"), "dragon": ("lotus", "dragon")}
+
+# Windows Terminal color names, in ANSI order.
+ANSI_COLORS = (
+    "black",
+    "red",
+    "green",
+    "yellow",
+    "blue",
+    "purple",
+    "cyan",
+    "white",
+    "brightBlack",
+    "brightRed",
+    "brightGreen",
+    "brightYellow",
+    "brightBlue",
+    "brightPurple",
+    "brightCyan",
+    "brightWhite",
+)
+
+# The Catppuccin flavor that each variant replaces in VS Code. Frappe stays stock.
+VSCODE_FLAVORS = {"wave": "mocha", "dragon": "macchiato", "lotus": "latte"}
 
 
 def hx(color: str) -> str:
@@ -265,24 +334,7 @@ def build_windows_terminal() -> None:
             "background": term["background"],
             "foreground": term["foreground"],
         }
-        for color in (
-            "black",
-            "red",
-            "green",
-            "yellow",
-            "blue",
-            "purple",
-            "cyan",
-            "white",
-            "brightBlack",
-            "brightRed",
-            "brightGreen",
-            "brightYellow",
-            "brightBlue",
-            "brightPurple",
-            "brightCyan",
-            "brightWhite",
-        ):
+        for color in ANSI_COLORS:
             scheme[color] = term[color]
         scheme = {k: v.upper() if v.startswith("#") else v for k, v in scheme.items()}
 
@@ -303,6 +355,85 @@ def build_windows_terminal() -> None:
         write(out / f"{key}Theme.json", [json.dumps(theme, indent=2)])
 
 
+def vscode_palette(variant: Variant) -> dict[str, str]:
+    """Map Kanagawa roles onto the Catppuccin palette slots the extension uses."""
+    ui, syn, status = variant["ui"], variant["syn"], variant["status"]
+    return {
+        "rosewater": ui["fg_dim"],
+        "flamingo": syn["number"],
+        "pink": syn["regex"],
+        "mauve": syn["keyword"],
+        "red": syn["special2"],
+        "maroon": syn["parameter"],
+        "peach": syn["constant"],
+        "yellow": syn["type"],
+        "green": syn["string"],
+        "teal": syn["operator"],
+        "sky": syn["special1"],
+        "sapphire": status["hint"],
+        "blue": syn["fun"],
+        "lavender": syn["identifier"],
+        "text": ui["fg"],
+        "subtext1": ui["fg_dim"],
+        "subtext0": ui["special"],
+        "overlay2": syn["comment"],
+        "overlay1": ui["nontext"],
+        "overlay0": ui["nontext"],
+        "surface2": ui["nontext"],
+        "surface1": ui["bg_p2"],
+        "surface0": ui["bg_p1"],
+        "base": ui["bg"],
+        "mantle": ui["bg_m2"],
+        "crust": ui["bg_m3"],
+    }
+
+
+def vscode_ui_colors(variant: Variant) -> dict[str, str]:
+    """Workbench colors that no palette slot can express."""
+    ui, syn, status, term = (
+        variant["ui"],
+        variant["syn"],
+        variant["status"],
+        variant["term"],
+    )
+    colors = {
+        "editor.selectionBackground": ui["bg_visual"],
+        "editorCursor.foreground": term["cursor"],
+        "editorError.foreground": syn["error"],
+        "editorWarning.foreground": status["warning"],
+        "editorInfo.foreground": status["info"],
+        "gitDecoration.addedResourceForeground": status["added"],
+        "gitDecoration.untrackedResourceForeground": status["added"],
+        "gitDecoration.modifiedResourceForeground": status["changed"],
+        "gitDecoration.deletedResourceForeground": status["removed"],
+        "editorGutter.addedBackground": status["added"],
+        "editorGutter.modifiedBackground": status["changed"],
+        "editorGutter.deletedBackground": status["removed"],
+        "terminalCursor.foreground": term["cursor"],
+        "terminal.selectionBackground": term["selection"],
+    }
+    # Catppuccin takes terminal colors from its own palette, not the overrides.
+    for color in ANSI_COLORS:
+        name = color.replace("purple", "magenta").replace("Purple", "Magenta")
+        colors[f"terminal.ansi{name[0].upper()}{name[1:]}"] = term[color]
+    return colors
+
+
+def build_vscode() -> None:
+    settings = {
+        "catppuccin.colorOverrides": {
+            flavor: vscode_palette(VARIANTS[key])
+            for key, flavor in VSCODE_FLAVORS.items()
+        },
+        "catppuccin.customUIColors": {
+            flavor: vscode_ui_colors(VARIANTS[key])
+            for key, flavor in VSCODE_FLAVORS.items()
+        },
+    }
+    write(ROOT / "vscode" / "settings.json", [json.dumps(settings, indent=2)])
+
+
 if __name__ == "__main__":
     build_fish()
     build_windows_terminal()
+    build_vscode()
