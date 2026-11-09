@@ -433,7 +433,35 @@ def build_vscode() -> None:
     write(ROOT / "vscode" / "settings.json", [json.dumps(settings, indent=2)])
 
 
+def build_codex() -> None:
+    """Build desktop Appearance imports, using Codex's built-in code palette."""
+    out = ROOT / "codex"
+    for key, variant in VARIANTS.items():
+        ui, syn, status = variant["ui"], variant["syn"], variant["status"]
+        payload = {
+            "codeThemeId": "codex",
+            "theme": {
+                "accent": syn["fun"],
+                "contrast": 60 if variant["appearance"] == "dark" else 45,
+                "fonts": {"code": None, "ui": None},
+                "ink": ui["fg"],
+                "opaqueWindows": True,
+                "semanticColors": {
+                    "diffAdded": status["added"],
+                    "diffRemoved": status["removed"],
+                    "skill": syn["keyword"],
+                },
+                "surface": ui["bg"],
+            },
+            "variant": variant["appearance"],
+        }
+        write(out / f"{key}.json", [json.dumps(payload, indent=2)])
+        share = "codex-theme-v1:" + json.dumps(payload, separators=(",", ":"))
+        write(out / f"{key}.txt", [share])
+
+
 if __name__ == "__main__":
     build_fish()
     build_windows_terminal()
     build_vscode()
+    build_codex()

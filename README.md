@@ -1,6 +1,6 @@
-# Kanagawa for Fish, Windows Terminal, and VS Code
+# Kanagawa for Fish, Windows Terminal, VS Code, and Codex
 
-Kanagawa color themes for the [Fish shell](https://fishshell.com), [Windows Terminal](https://github.com/microsoft/terminal), and [VS Code](https://code.visualstudio.com), in three variants. Wave and Dragon are dark, and Lotus is light. In VS Code, the themes are settings for the Catppuccin extension.
+Kanagawa color themes for the [Fish shell](https://fishshell.com), [Windows Terminal](https://github.com/microsoft/terminal), [VS Code](https://code.visualstudio.com), and the [Codex desktop app](https://learn.chatgpt.com/docs/app/settings#appearance), in three variants. Wave and Dragon are dark, and Lotus is light. In VS Code, the themes are settings for the Catppuccin extension.
 
 ## Fish
 
@@ -97,9 +97,30 @@ Catppuccin Frappé keeps its own colors.
 
 The backgrounds, selection, cursor, git, and terminal colors match Kanagawa. Syntax colors are close but not exact, because Catppuccin uses each palette color for several kinds of code.
 
+## Codex desktop app
+
+Each variant has a theme import string and a readable JSON payload in [`codex/`](codex). Choose a variant:
+
+| Kanagawa variant | Import string | Appearance slot |
+| ---------------- | ------------- | --------------- |
+| Wave             | [wave.txt](codex/wave.txt) | Dark theme |
+| Dragon           | [dragon.txt](codex/dragon.txt) | Dark theme |
+| Lotus            | [lotus.txt](codex/lotus.txt) | Light theme |
+
+1. Open **Settings > Appearance** in the Codex desktop app.
+2. Select **Import** in the matching **Dark theme** or **Light theme** section.
+3. Copy the entire line from the variant's `.txt` file, including the `codex-theme-v1:` prefix, and paste it into the import dialog.
+4. Confirm the import. Set the app's **Theme** to **Dark**, **Light**, or **System** to choose when it applies.
+
+Import Wave or Dragon into the dark slot and Lotus into the light slot to follow your system appearance.
+
+The background, foreground, accent, diff additions, diff removals, and skill colors use the shared Kanagawa palettes. Windows are opaque, fonts use the app defaults, and contrast is 60 for dark variants and 45 for Lotus. The app derives other interface colors from these settings.
+
+The importer accepts built-in code-theme IDs, so these imports use `codex` for code highlighting. They do not add Kanagawa syntax highlighting or change the CLI's `tui.theme` setting. The import format follows the [DexThemes theme v1 contract](https://github.com/daeshawnballard/dexthemes/blob/main/shared/codex-theme-contract.js).
+
 ## Change the colors
 
-The palettes are in [`build.py`](build.py), which needs Python 3.9 or later. After you edit a color, run it to regenerate every file in `themes/`, `static/`, `windows-terminal/`, and `vscode/`:
+The palettes are in [`build.py`](build.py), which needs Python 3.9 or later. After you edit a color, run it to regenerate every file in `themes/`, `static/`, `windows-terminal/`, `vscode/`, and `codex/`:
 
 ```sh
 python3 build.py
