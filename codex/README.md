@@ -19,9 +19,29 @@ Import Wave or Dragon into the dark slot and Lotus into the light slot to follow
 
 ## Colors and code highlighting
 
-The background, foreground, accent, diff additions, diff removals, and skill colors use the shared Kanagawa palettes. Windows are opaque, fonts use the app defaults, and contrast is 60 for dark variants and 45 for Lotus. The app derives other interface colors from these settings.
+The background, foreground, accent, diff additions, diff removals, and skill colors use the shared Kanagawa palettes. Windows are opaque and fonts use the app defaults. The app derives other interface colors from these settings.
 
 The importer accepts built-in code-theme IDs, so these imports use `codex` for code highlighting. They do not add Kanagawa syntax highlighting or change the CLI's `tui.theme` setting. The import format follows the [DexThemes theme v1 contract](https://github.com/daeshawnballard/dexthemes/blob/main/shared/codex-theme-contract.js).
+
+## Contrast
+
+Use these starting values for the **Contrast** slider in **Settings > Appearance**. Each import sets the value automatically.
+
+| Variant | Contrast |
+| ------- | -------- |
+| Wave    | 60       |
+| Dragon  | 60       |
+| Lotus   | 45       |
+
+**System** switches between the saved light and dark configurations, including their contrast values. No manual adjustment is needed when the system appearance changes.
+
+You can adjust the slider from 0 to 100 to taste. The value is a theme parameter, not a text contrast ratio. See the [theme format reference](https://github.com/daeshawnballard/dexthemes/blob/main/content/reference/codex-theme-format.md#contrast).
+
+## Theme names
+
+The v1 import format has no custom display-name field. These imports apply settings to the selected light or dark slot without adding a named Kanagawa preset to the dropdown. See the [theme naming guide](https://codextheme.org/guide/how-to-create-a-codex-theme#can-i-name-my-custom-codex-theme).
+
+`codeThemeId` selects the built-in code palette, not a custom name. To switch between Wave and Dragon, import the other variant's `.txt` file.
 
 See the [official Appearance settings documentation](https://learn.chatgpt.com/docs/app/settings#appearance) for the app's theme controls.
 
