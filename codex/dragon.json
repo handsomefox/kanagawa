@@ -1,5 +1,5 @@
 {
-  "codeThemeId": "codex",
+  "codeThemeId": "nord",
   "theme": {
     "accent": "#8ba4b0",
     "contrast": 60,
@@ -10,9 +10,9 @@
     "ink": "#c5c9c5",
     "opaqueWindows": true,
     "semanticColors": {
-      "diffAdded": "#76946a",
-      "diffRemoved": "#c34043",
-      "skill": "#8992a7"
+      "diffAdded": "#8a9a7b",
+      "diffRemoved": "#c4746e",
+      "skill": "#938aa9"
     },
     "surface": "#181616"
   },

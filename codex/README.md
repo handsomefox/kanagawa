@@ -1,48 +1,28 @@
 # Kanagawa for the Codex desktop app
 
-Each variant has a theme import string and a readable JSON payload. Choose a variant:
+Each variant has an import string for **Settings** > **Appearance** in the Codex desktop app.
 
-| Kanagawa variant | Import string | JSON payload | Appearance slot |
-| ---------------- | ------------- | ------------ | --------------- |
-| Wave             | [wave.txt](wave.txt) | [wave.json](wave.json) | Dark theme |
-| Dragon           | [dragon.txt](dragon.txt) | [dragon.json](dragon.json) | Dark theme |
-| Lotus            | [lotus.txt](lotus.txt) | [lotus.json](lotus.json) | Light theme |
+| Variant | Import string | Appearance slot | Code theme |
+| ------- | ------------- | --------------- | ---------- |
+| Wave    | [wave.txt](wave.txt)     | Dark  | Tokyo Night |
+| Dragon  | [dragon.txt](dragon.txt) | Dark  | Nord        |
+| Lotus   | [lotus.txt](lotus.txt)   | Light | One Light   |
 
 ## Install
 
-1. Open **Settings > Appearance** in the Codex desktop app.
-2. Select **Import** in the matching **Dark theme** or **Light theme** section.
-3. Copy the entire line from the variant's `.txt` file, including the `codex-theme-v1:` prefix, and paste it into the import dialog.
-4. Confirm the import. Set the app's **Theme** to **Dark**, **Light**, or **System** to choose when it applies.
+1. Open the `.txt` file for your variant and copy the whole line, including the `codex-theme-v1:` prefix.
+2. In Codex, open **Settings** > **Appearance**.
+3. In the dark or light section that matches the table, select **Import theme**.
+4. Paste the line, then approve the import.
 
-Import Wave or Dragon into the dark slot and Lotus into the light slot to follow your system appearance.
+To follow your system's light or dark mode, import Wave or Dragon into the dark slot and Lotus into the light slot.
 
-## Colors and code highlighting
+## Colors
 
-The background, foreground, accent, diff additions, diff removals, and skill colors use the shared Kanagawa palettes. Windows are opaque and fonts use the app defaults. The app derives other interface colors from these settings.
+The background, text, accent, diff, and skill colors come from the Kanagawa palette. Codex derives the rest of the interface from them.
 
-The importer accepts built-in code-theme IDs, so these imports use `codex` for code highlighting. They do not add Kanagawa syntax highlighting or change the CLI's `tui.theme` setting. The import format follows the [DexThemes theme v1 contract](https://github.com/daeshawnballard/dexthemes/blob/main/shared/codex-theme-contract.js).
+Codex can't import syntax colors. It accepts only its built-in code themes, so each import picks the one whose colors are closest to the variant's kanagawa.nvim highlights. Code highlighting is close to Kanagawa but not identical.
 
-## Contrast
-
-Use these starting values for the **Contrast** slider in **Settings > Appearance**. Each import sets the value automatically.
-
-| Variant | Contrast |
-| ------- | -------- |
-| Wave    | 60       |
-| Dragon  | 60       |
-| Lotus   | 45       |
-
-**System** switches between the saved light and dark configurations, including their contrast values. No manual adjustment is needed when the system appearance changes.
-
-You can adjust the slider from 0 to 100 to taste. The value is a theme parameter, not a text contrast ratio. See the [theme format reference](https://github.com/daeshawnballard/dexthemes/blob/main/content/reference/codex-theme-format.md#contrast).
-
-## Theme names
-
-The v1 import format has no custom display-name field. These imports apply settings to the selected light or dark slot without adding a named Kanagawa preset to the dropdown. See the [theme naming guide](https://codextheme.org/guide/how-to-create-a-codex-theme#can-i-name-my-custom-codex-theme).
-
-`codeThemeId` selects the built-in code palette, not a custom name. To switch between Wave and Dragon, import the other variant's `.txt` file.
-
-See the [official Appearance settings documentation](https://learn.chatgpt.com/docs/app/settings#appearance) for the app's theme controls.
+The `.json` files show the same settings in readable form. [`build.py`](../build.py) generates both formats. The format follows the [DexThemes `codex-theme-v1` contract](https://github.com/daeshawnballard/dexthemes/blob/main/shared/codex-theme-contract.js).
 
 [All supported tools](../README.md)

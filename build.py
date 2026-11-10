@@ -87,6 +87,7 @@ VARIANTS: dict[str, Variant] = {
             "added": "#76946a",  # autumnGreen
             "changed": "#dca561",  # autumnYellow
             "removed": "#c34043",  # autumnRed
+            "skill": "#957fb8",  # oniViolet
         },
     },
     "dragon": {
@@ -151,6 +152,7 @@ VARIANTS: dict[str, Variant] = {
             "added": "#76946a",  # autumnGreen
             "changed": "#dca561",  # autumnYellow
             "removed": "#c34043",  # autumnRed
+            "skill": "#938aa9",  # springViolet1: dragonViolet is too close to the accent
         },
     },
     "lotus": {
@@ -215,6 +217,7 @@ VARIANTS: dict[str, Variant] = {
             "added": "#6e915f",  # lotusGreen2
             "changed": "#de9800",  # lotusYellow3
             "removed": "#d7474b",  # lotusRed2
+            "skill": "#624c83",  # lotusViolet4
         },
     },
 }
@@ -245,6 +248,10 @@ ANSI_COLORS = (
 
 # The Catppuccin flavor that each variant replaces in VS Code. Frappe stays stock.
 VSCODE_FLAVORS = {"wave": "mocha", "dragon": "macchiato", "lotus": "latte"}
+
+# Codex accepts only its built-in code themes. These are the ones whose syntax
+# colors are closest to each variant's kanagawa.nvim highlights.
+CODEX_CODE_THEMES = {"wave": "tokyo-night", "dragon": "nord", "lotus": "one"}
 
 
 def hx(color: str) -> str:
@@ -434,12 +441,12 @@ def build_vscode() -> None:
 
 
 def build_codex() -> None:
-    """Build desktop Appearance imports, using Codex's built-in code palette."""
+    """Write Codex desktop Appearance imports in the codex-theme-v1 format."""
     out = ROOT / "codex"
     for key, variant in VARIANTS.items():
         ui, syn, status = variant["ui"], variant["syn"], variant["status"]
         payload = {
-            "codeThemeId": "codex",
+            "codeThemeId": CODEX_CODE_THEMES[key],
             "theme": {
                 "accent": syn["fun"],
                 "contrast": 60 if variant["appearance"] == "dark" else 45,
@@ -447,9 +454,9 @@ def build_codex() -> None:
                 "ink": ui["fg"],
                 "opaqueWindows": True,
                 "semanticColors": {
-                    "diffAdded": status["added"],
-                    "diffRemoved": status["removed"],
-                    "skill": syn["keyword"],
+                    "diffAdded": syn["string"],
+                    "diffRemoved": syn["special2"],
+                    "skill": status["skill"],
                 },
                 "surface": ui["bg"],
             },

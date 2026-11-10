@@ -11,7 +11,7 @@ Choose a tool for installation instructions.
 | [Fish](fish/README.md) | Adaptive themes for Fish 4.3+, fixed themes for Fish 3.4 to 4.2 |
 | [Windows Terminal](windows-terminal/README.md) | Terminal color schemes and window themes |
 | [VS Code](vscode/README.md) | Color overrides for the Catppuccin extension |
-| [Codex desktop app](codex/README.md) | Appearance imports with Kanagawa interface and diff colors |
+| [Codex desktop app](codex/README.md) | Appearance imports with Kanagawa interface colors and the closest built-in code theme |
 
 ## Change the colors
 
